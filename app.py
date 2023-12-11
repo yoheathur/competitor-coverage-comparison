@@ -6,9 +6,10 @@ app = Flask(__name__)
 @app.route('/get-data', methods=['GET'])
 def get_data():
     # Replace with your private API URL and required headers
-    api_url = 'https://your-private-api.com/data'
+    api_url = 'https://web3api.io/api/v2/market/exchanges'
     headers = {
-        'Authorization': 'Bearer YOUR_API_TOKEN', # Replace with your API token
+        'x-api-key': 'UAK5b2464bd90aa63316784d05427a042f7',# Replace with your API token
+        'accept': 'application/json'
         # Include other necessary headers
     }
 
