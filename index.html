@@ -5,18 +5,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Data Display</title>
+    <style>
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin: 5px 0;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Data from API</h1>
+    <h1>Amberdata Spot Exchanges</h1>
     <button id="loadData">Load Data</button>
-    <pre id="data"></pre>
+    <ul id="data"></ul>
 
     <script>
         document.getElementById('loadData').addEventListener('click', () => {
             fetch('/get-data')
                 .then(response => response.json())
                 .then(data => {
-                    document.getElementById('data').textContent = JSON.stringify(data, null, 2);
+                    const dataList = document.getElementById('data');
+                    dataList.innerHTML = ''; // Clear existing list items
+                    data.forEach(item => {
+                        let listItem = document.createElement('li');
+                        listItem.textContent = item;
+                        dataList.appendChild(listItem);
+                    });
                 })
                 .catch(error => console.error('Error:', error));
         });
