@@ -6,6 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Data Display</title>
     <style>
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 20px; /* Space between boxes */
+            padding: 20px;
+        }
+        .box {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 20px;
+            width: 300px; /* Fixed width for each box */
+            background-color: #f9f9f9;
+        }
         ul {
             list-style-type: none;
             padding: 0;
@@ -20,9 +33,20 @@
     </style>
 </head>
 <body>
-    <h1>Amberdata Spot Exchanges</h1>
-    <button id="loadData">Load Data</button>
-    <ul id="data"></ul>
+    <div class="container">
+        <div class="box">
+            <h1>Amberdata Spot Exchanges</h1>
+            <button id="loadData">Load Data</button>
+            <ul id="data"></ul>
+        </div>
+        <!-- Placeholder for additional boxes -->
+        <div class="box">
+            <!-- Content for Box 2 -->
+        </div>
+        <div class="box">
+            <!-- Content for Box 3 -->
+        </div>
+    </div>
 
     <script>
         document.getElementById('loadData').addEventListener('click', () => {
