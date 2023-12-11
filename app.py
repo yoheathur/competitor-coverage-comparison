@@ -3,6 +3,10 @@ import requests
 
 app = Flask(__name__)
 
+@app.route('/')
+def index():
+    return render_template('index.html')
+
 @app.route('/get-data', methods=['GET'])
 def get_data():
     # Replace with your private API URL and required headers
