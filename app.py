@@ -20,7 +20,12 @@ def get_data():
         # Extracting the exchange names
         exchange_names = list(data.get('payload', {}).get('data', {}).keys())
 
-        return jsonify(exchange_names)
+        # Formatting the response
+        formatted_response = {
+            "Amberdata Spot Exchanges": exchange_names
+        }
+
+        return jsonify(formatted_response)
     else:
         return jsonify({"error": "Failed to fetch data"}), response.status_code
 
